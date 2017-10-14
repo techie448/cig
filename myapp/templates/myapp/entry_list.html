@@ -1,0 +1,56 @@
+{% extends 'myapp/base.html' %}
+
+{% block body %}
+
+	{% if entry_list %}
+		<h1> {{ city }}
+			<small> - {{ category }}:</small>
+		</h1>
+		{% for entry in entry_list %}
+
+			<hr>
+
+			<div class="row">
+
+			{% if forloop.counter|divisibleby:"2" %}
+				<div class="col-md-7 col-md-push-5">
+			{% else %}
+				<div class="col-md-7">
+			{% endif %}
+		{% include 'myapp/entry_data.html' %}
+		<a href="{% url 'myapp:review' city.slug category.slug entry.slug %}">View More...</a>
+		</div>
+			{% if forloop.counter|divisibleby:"2" %}
+				<div class="col-md-5 col-md-pull-7">
+			{% else %}
+				<div class="col-md-5">
+			{% endif %}
+		{% include 'myapp/entry_img.html' %}
+		</div>
+		</div>
+
+			<hr>
+
+
+		{% endfor %}
+
+
+	</div>
+	{% else %}
+		<div class="row">
+			<div class="col-md-5 col-sm-offset-1">
+				<h2> No {{ category }}s in {{ city }}. <br/>
+
+				</h2>
+			</div>
+			<div class="col-md-5">
+				<img class="img-responsive center-block img-thumbnail" src="{{ category.image_url }}"
+				     alt="Generic placeholder image">
+
+			</div>
+		</div>
+
+
+
+	{% endif %}
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'myapp/base.html' %}
+{% block body %}
+	<div class="container-fluid jumbotron text-center">
+		<div class="row">
+			<div class="col-md-12">
+				<span style="font-size:50px;color:grey;">Welcome to {{ city.name }}!</span><br><br>
+				<img src="{{ city.image_url }}" style="width:80%" class="img-thumbnail">
+				<div class="text-justify">
+
+					<p><span style="font-size:40px">{{ city.name }}-</span><br>{{ city.description }}</p>
+
+				</div>
+			</div>
+			{% include 'myapp/CatList.html' %}
+
+		</div>
+
+
+	</div>
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

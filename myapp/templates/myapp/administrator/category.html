@@ -1,0 +1,48 @@
+{% extends 'myapp/administrator/base.html' %}
+
+{% block body %}
+<a href="{% url 'myapp:createcategory' %}">
+	<button class="btn btn-danger">
+
+	<span class="glyphicon glyphicon-plus"></span>
+	Add Category
+	</button>
+	<br><br></a>
+
+<div class="col-md-6">
+ <table class="table">
+    <thead>
+      <tr>
+        <th>Category Name</th>
+
+	      <th>Update/Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for c in category_list %}
+      <tr>
+        <td>{{ c.type }}</a></td>
+
+	      <td>
+		      <div class="btn-group">
+
+		        <a href="{% url 'myapp:admin-category-update' c.slug %}" >
+
+				          <span class="glyphicon glyphicon-upload" style="font-size: x-large;color: yellow"></span>
+
+		        </a>
+		             <a href="{% url 'myapp:admin-category-delete' c.slug %}" >
+			             <span class="glyphicon glyphicon-remove" style="font-size: x-large;color: red"></span></a>
+
+		      </div>
+	      </td>
+
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+</div>
+
+
+{% endblock %}

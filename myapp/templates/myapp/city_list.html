@@ -1,0 +1,27 @@
+{% extends 'myapp/base.html' %}
+
+{% block body %}
+
+	<div class="container-fluid row">
+
+		{% if city_list %}
+			{% for c in city_list %}
+				<div class="col-md-4">
+					<div class="thumbnail">
+						<a href="{% url 'myapp:city' c.slug %}">
+							<img src="{{ c.image_url }}" alt="City Image" style="height:230px;width:100%">
+							<div class="caption text-center">
+								<span class="text-muted" style="font-size:18px">{{ c.name }}</span>
+							</div>
+						</a></div>
+				</div>
+
+			{% endfor %}
+			</div>
+
+		{% else %}
+			<h1>No cities added</h1>
+
+		{% endif %}
+
+{% endblock %}

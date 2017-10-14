@@ -1,0 +1,10 @@
+{% extends "myapp/my_profile.html" %}
+
+{% block change %}
+		<br>
+		<hr>
+	<div class="jumbotron">
+	<p>Your Password has been successfully changed.</p>
+		<a href="{% url 'myapp:myprofile' %}"> <p>DISMISS</p> </a>
+
+{% endblock %}

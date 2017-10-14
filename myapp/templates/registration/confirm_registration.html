@@ -1,0 +1,9 @@
+{% extends "myapp/administrator/base.html" %}
+
+{% block body %}
+
+	<p>Thanks for Registration. Kindly check your email for confirmation link to complete the registration process.</p>
+
+	<p><a href="{% url 'myapp:login' %}" class="btn btn-danger">Log in!</a></p>
+
+{% endblock %}

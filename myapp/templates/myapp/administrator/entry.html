@@ -1,0 +1,48 @@
+{% extends 'myapp/administrator/base.html' %}
+{% block body %}
+
+		<a href="{% url 'myapp:admin-new-entry' %}">
+	<button class="btn btn-danger">
+
+	<span class="glyphicon glyphicon-plus"></span>
+	Add Entry
+	</button></a>
+	<br><br>
+	<table class="table">
+		{% for city in city %}
+			<tr>
+				<td>{{ city }}</td>
+				{% for category in category %}
+					<td>{{ category }}
+						<ul>
+							{% for c in entry_list %}
+								{% if c.city == city and c.category == category %}
+									<li>
+										{{ c.name }}
+
+										<a href="{% url 'myapp:admin-entry-update' city.slug category.slug c.slug %}">
+										<span class="text-warning glyphicon glyphicon-upload" style="color: yellow"></span></a>
+										<a href="{% url 'myapp:admin-entry-delete' city.slug category.slug c.slug %}">
+										<span class="text-danger glyphicon glyphicon-remove" style="color: red"></span></a>
+
+									</li>
+								{% endif %}
+							{% endfor %}
+
+						</ul>
+					<a href="{% url 'myapp:createentry' city.slug category.slug %}">
+							<span class="glyphicon glyphicon-plus-sign text-success"></span>
+							<span class="text-success">Add One!</span></a>
+					</td>
+				{% endfor %}
+
+			</tr>{% endfor %}
+	</table>
+
+
+
+
+
+
+
+{% endblock %}

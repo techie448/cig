@@ -1,0 +1,40 @@
+<h2>
+	<small>
+		<table class="table-responsive table-hover">
+			{% for r in review_list %}
+				<tr>
+					<td>
+						{{ forloop.counter }}. By {{ r.user }} : {{ r.rating }}/10 <img
+							src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/star-128.png" alt="rating star"
+							width="25px" style="padding-bottom:10px">
+
+{% if r.user == request.user %}<td align="right">
+						<a href="{% url 'myapp:updatereview' city.slug category.slug entry.slug r.slug %}">
+						<span class="glyphicon glyphicon-upload text-warning"></span>
+						</a>
+						<a href="{% url 'myapp:deletereview' city.slug category.slug entry.slug r.slug %}">
+						<span class="glyphicon glyphicon-remove text-danger"></span>
+						</a>
+				</td>
+				{% endif %}
+					</td>
+
+				</tr>
+				<tr>
+					<td>Posted on : {{ r.date_created }}
+					{% if r.date_created != r.date_updated %}
+						<br>
+						Updated on : {{ r.date_updated }}
+					{% endif %}
+				</td>
+				</tr>
+				<tr>
+
+					<td class="text-left"><span class="col-md-offset-1 lead"> -- {{ r.review }}    </span></td>
+
+				</tr>
+				</table>
+				</small></h2>
+
+			{% endfor %}
+

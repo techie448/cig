@@ -1,0 +1,36 @@
+{% extends 'myapp/base.html' %}
+
+{% block body %}
+<div class="container">
+<div class="row">
+	<div class="col-md-3">
+
+		<div class="thumbnail">
+		<img src="https://www.1plusx.com/app/mu-plugins/all-in-one-seo-pack-pro/images/default-user-image.png" width="100%">
+			<div class="caption text-center">
+								<span class="text-muted" style="font-size:18px">{{ user.username }}</span><br>
+
+				Name : {{ user.first_name }} {{ user.last_name }}<br>
+				Email : {{ user.email }}<br>
+				Last Login : {{ user.last_login }}<br>
+				Date Joined : {{ user.date_joined | date}}
+
+							</div>
+	</div>
+
+		</div>
+	<div class="col-md-6">
+		<h2>My Profile</h2>
+		<a href="{% url 'myapp:password_change' %}">
+									<button type="button" class="btn btn-warning">
+										Change Password <span class="glyphicon glyphicon-cog text-danger"></span>
+									</button>
+								</a>
+
+		{% block change %}
+			{% endblock %}
+	</div>
+	</div>
+</div>
+</div>
+{% endblock %}

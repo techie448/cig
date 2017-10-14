@@ -1,0 +1,14 @@
+{% extends "myapp/base.html" %}
+{% block body %}
+
+	<form class="" action="" method="post">
+		{% csrf_token %}
+		{% include 'myapp/form-template.html' %}
+		<input type="submit" class="btn btn-primary" value="Login"/>
+		<a href="{% url 'myapp:password-reset' %}">
+			<button type="button" class="btn btn-danger">
+				Reset Password
+			</button>
+		</a>
+	</form>
+{% endblock %}

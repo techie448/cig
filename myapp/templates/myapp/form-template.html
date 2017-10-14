@@ -1,0 +1,15 @@
+{% load widget_tweaks %}
+{% for field in form %}
+	<div class="form-group">
+		{{ field.label_tag }}
+		{{ field|attr:"class:form-control" }}
+		{{ field.errors }}
+	</div>
+{% endfor %}
+{% if form.non_field_errors %}
+	{% for error in form.non_field_errors %}
+		<p class="errornote">
+			{{ error }}
+		</p>
+	{% endfor %}
+{% endif %}

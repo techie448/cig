@@ -1,0 +1,25 @@
+<h2>{{ entry.name }} :
+	<small>{% if entry.avg_rating %}
+		{{ entry.avg_rating }}/10
+		<img src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/star-128.png" alt="rating star" width="25px"
+		     style="padding-bottom:10px">
+	{% endif %}
+
+
+		<table class="table-responsive table-hover" width="100%">
+			<tr>
+				<td>Contact</td>
+				<td> :</td>
+				<td class="text-left"><span class="lead"> {{ entry.phone }}</span>
+				</td>
+			</tr>
+			<tr>
+				<td>Address</td>
+				<td> :</td>
+				<td class="text-left"><span class="lead"> {{ entry.address }}</span>
+				</td>
+			</tr>
+
+		</table>
+	</small>
+</h2>

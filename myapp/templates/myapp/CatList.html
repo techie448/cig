@@ -1,0 +1,20 @@
+{% if category_list %}
+
+	{% for c in category_list %}
+
+		<div class="col-md-4">
+			<div class="thumbnail">
+				<a href="{% url 'myapp:entry' city.slug c.slug %}">
+					<img src="{{ c.image_url }}" alt="City Image" style="height:230px;width:100%">
+					<div class="caption text-center">
+						<span class="text-muted" style="font-size:18px">{{ c.type }}s</span>
+					</div>
+				</a></div>
+		</div>
+
+	{% endfor %}
+
+
+
+
+{% endif %}

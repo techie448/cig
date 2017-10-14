@@ -1,0 +1,43 @@
+{% extends 'myapp/administrator/base.html' %}
+{% block body %}
+
+		<a href="{% url 'myapp:admin-new-review' %}">
+	<button class="btn btn-danger">
+	<span class="glyphicon glyphicon-plus"></span>
+	Add Review
+	</button></a>
+	<br><br>
+	<table class="table">
+		{% for entry in entry %}
+			<tr>
+				<td>{{ entry }}</td>
+					<td>
+						<ul>
+							{% for c in review_list %}
+								{% if c.entry == entry %}
+									<li>
+										{{ c.user }}
+										<a href="{% url 'myapp:admin-review-delete' entry.slug c.slug %}">
+										<span class="text-danger glyphicon glyphicon-remove"></span></a>
+
+									</li>
+								{% endif %}
+							{% endfor %}
+
+						</ul>
+					<a href="{% url 'myapp:admin-review-entry-create' entry.slug %}">
+							<span class="glyphicon glyphicon-plus-sign text-success"></span>
+							<span class="text-success">Add One!</span></a>
+					</td>
+
+
+			</tr>{% endfor %}
+	</table>
+
+
+
+
+
+
+
+{% endblock %}

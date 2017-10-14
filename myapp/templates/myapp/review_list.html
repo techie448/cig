@@ -1,0 +1,32 @@
+{% extends 'myapp/base.html' %}
+
+{% block body %}
+
+	<div class="jumbotron text-left">
+		<div class="row">
+			<div class="col-md-8">
+				{% include 'myapp/entry_data.html' %}
+				<hr>
+				{% if review_list %}
+					{% include "myapp/review_data.html" %}
+				{% else %}
+
+					<div class="row">
+						<h2>
+							<small> No reviews for {{ entry.name }}. <br/><a
+									href="{% url 'myapp:createreview' city.slug category.slug entry.slug %}">Add
+								one?</a></small>
+						</h2>
+
+					</div>
+				{% endif %}
+			</div>
+			<div class="col-md-4">
+				{% include 'myapp/entry_img.html' %}
+			</div>
+		</div>
+
+
+	</div>
+
+{% endblock %}
