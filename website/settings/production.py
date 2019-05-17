@@ -22,9 +22,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 SECRET_KEY = os.environ.get('SECRET_KEY', 'adsgfhtyu765843rfewg5y5ju6453(z9+3vnm(jb0u@&w68t#5_e8s9-lbfhv-')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['localhost']
+ALLOWED_HOSTS = ['cityinfoguide.herokuapp.com','0.0.0.0']
 
 
 # Application definition
@@ -147,8 +147,8 @@ STATIC_ROOT = os.path.normpath(os.path.join(BASE_DIR, 'static'))
 #     os.path.join(BASE_DIR, 'static'),
 # )
 CORS_REPLACE_HTTPS_REFERER      = True
-HOST_SCHEME                     = "http://"
-SECURE_PROXY_SSL_HEADER         = ('HTTP_X_FORWARDED_PROTO', 'http')
+HOST_SCHEME                     = "https://"
+SECURE_PROXY_SSL_HEADER         = ('HTTP_X_FORWARDED_PROTO', 'https')
 SECURE_SSL_REDIRECT             = True
 SESSION_COOKIE_SECURE           = True
 CSRF_COOKIE_SECURE              = True
